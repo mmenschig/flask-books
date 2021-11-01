@@ -1,0 +1,51 @@
+{% extends "_base.html" %}
+
+{% block title %}Edit Book{% endblock %}
+
+{% block content %}
+<div class="card bg-light mt-5">
+    <div class="card-header">
+        <strong>Edit book</strong>
+    </div>
+    <div class="card-body">
+        <form method="POST" role="form">
+        {{ form.csrf_token }}
+        <!-- Title -->
+        <div class="mb-3 row">
+            <label for="" class="col-form-label col-sm-2">{{ form.title.label }}</label>
+            <div class="col-sm-6">
+                {{ form.title(class_="form-control") }}
+            </div>
+        </div>
+    
+        <!-- Author -->
+        <div class="mb-3 row">
+            <label for="" class="col-form-label col-sm-2">{{ form.author.label }}</label>
+            <div class="col-sm-6">
+                {{ form.author(class_="form-control") }}
+            </div>
+        </div>
+    
+        <!-- Genre -->
+        <div class="mb-3 row">
+            <label for="" class="col-form-label col-sm-2">{{ form.genre.label }}</label>
+            <div class="col-sm-6">
+                {{ form.genre(class_="form-control") }}
+            </div>
+        </div>
+    
+        <!-- Author -->
+        <div class="mb-3 row">
+            <label for="" class="col-form-label col-sm-2">{{ form.release_year.label }}</label>
+            <div class="col-sm-6">
+                {{ form.release_year(class_="form-control") }}
+            </div>
+        </div>
+    
+        <button class="btn btn-primary">Save</button>
+        <a class="btn btn-warning" href="{{ url_for('books.list_books') }}">Cancel</a>
+    </form>
+</div>
+</div>
+
+{% endblock %}
